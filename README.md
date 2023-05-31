@@ -1,4 +1,4 @@
-# Frontend Mentor - Product feedback app
+# Product feedback app
 
 ![Design preview for the Product feedback app coding challenge](./preview.jpg)
 
