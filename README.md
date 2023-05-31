@@ -14,9 +14,6 @@ Your users should be able to:
 - Filter suggestions by category
 - Add comments and replies to a product feedback request
 - Upvote product feedback requests
-- **Bonus**: Keep track of any changes, even after refreshing the browser (`localStorage` could be used for this if you're not building out a full-stack app)
-
-Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
 
 ### Expected Behaviour
 
