@@ -25,7 +25,7 @@ import Roadmap from './routes/roadmap/Roadmap';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/product-feedback-app/",
     element: <Root />,
     errorElement: <ErrorPage />,
   },
