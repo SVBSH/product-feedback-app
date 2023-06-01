@@ -1,13 +1,44 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import './styles/main.css';
 import reportWebVitals from './reportWebVitals';
+import {
+  createBrowserRouter,
+  RouterProvider
+} from 'react-router-dom';
+
+import Root from './routes/root/root';
+import ErrorPage from './error-page';
+import Roadmap from './routes/roadmap/Roadmap';
+
+  // {
+  //   path: "feedback-detail/:feedbackId"
+  //   // element: <FeedbackDetail />
+  // },
+  // {
+  //   path: "new-feedback",
+  //   // element: <CreateFeedback />
+  // }, {
+  //   path: "edit-feedback/:feedbackId",
+  //   // element: <EditFeedback />
+  // }
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Root />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: "/roadmap",
+    element: <Roadmap />
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
