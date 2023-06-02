@@ -109,6 +109,7 @@
   display: grid;
   -ms-flex-line-pack: start;
       align-content: start;
+  gap: 1rem;
 }
 @media (min-width: 700px) {
   .aside {

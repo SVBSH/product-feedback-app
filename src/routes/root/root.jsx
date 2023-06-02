@@ -27,8 +27,8 @@ function Root() {
             {/* TODO: make buttons */}
 
             <button>
-              <img src={imgMenuOpen} className={menuOpen ? 'hidden' : ''} alt="" />
-              <img src={imgMenuClose} className={menuOpen ? '' : 'hidden'} alt="" />
+              <img src={imgMenuOpen} width="20px" height="17px" className={menuOpen ? 'hidden' : ''} alt="" />
+              <img src={imgMenuClose} width="18px" height="17px" className={menuOpen ? '' : 'hidden'} alt="" />
             </button>
           </div>
         </header>

@@ -132,6 +132,7 @@
   overflow: hidden;
   display: grid;
   align-content: start;
+  gap: 1rem;
 
   @media (min-width: 700px) {
     background-color: transparent;
