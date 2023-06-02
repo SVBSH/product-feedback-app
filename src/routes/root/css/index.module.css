@@ -41,6 +41,10 @@
   padding-inline: 1.5rem;
   background: radial-gradient(128.88% 128.88% at 103.9% -10.39%, #e84d70 0%, #a337f6 53.09%, #28a7ed 100%);
 }
+.header .menu-control > button {
+  border: none;
+  background-color: inherit;
+}
 @media (min-width: 700px) {
   .header {
     height: auto;

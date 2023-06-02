@@ -25,8 +25,11 @@ function Root() {
             onClick={handleMenuStatus}
           >
             {/* TODO: make buttons */}
-            <img src={imgMenuOpen} className={menuOpen ? 'hidden' : ''} alt="" />
-            <img src={imgMenuClose} className={menuOpen ? '' : 'hidden'} alt="" />
+
+            <button>
+              <img src={imgMenuOpen} className={menuOpen ? 'hidden' : ''} alt="" />
+              <img src={imgMenuClose} className={menuOpen ? '' : 'hidden'} alt="" />
+            </button>
           </div>
         </header>
 

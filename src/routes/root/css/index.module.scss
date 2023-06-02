@@ -53,6 +53,11 @@
     #28a7ed 100%
   );
 
+  .menu-control > button {
+    border: none;
+    background-color: inherit;
+  }
+
   @media (min-width: 700px) {
     height: auto;
     border-radius: var(--rounded-base);
