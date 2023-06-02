@@ -1,0 +1,45 @@
+:root {
+  /* Colors */
+  --clr-purple: hsla(282, 83%, 52%, 1);
+  --clr-purple-hover: hsla(282, 90%, 66%, 1);
+
+  --clr-blue-4: hsla(204, 94%, 68%, 1);
+
+  --clr-blue-5: hsla(230, 76%, 59%, 1);
+  --clr-blue-5-hover: hsla(230, 91%, 73%, 1);
+
+  --clr-dark-blue-4: hsla(230, 31%, 31%, 1);
+
+  --clr-dark-blue-5:hsla(231, 33%, 34%, 1);
+  --clr-dark-blue-5-hover:hsla(231, 26%, 52%, 1);
+
+  --clr-grey-4: hsla(224, 20%, 49%, 1);
+  --clr-white: hsla(0, 0%, 100%, 1);
+  --clr-grey-2:hsla(230, 60%, 98%, 1);
+  --clr-grey-3: hsla(231, 100%, 97%, 1);
+  --clr-orange: hsla(14, 83%, 74%, 1);
+
+  --clr-red: hsla(0, 67%, 53%, 1);
+  --clr-red-hover: hsla(0, 69%, 72%, 1);
+
+  --font-family: 'Jost', sans-serif;
+
+  --fw-base: 400;
+  --fw-large: 600;
+  --fw-xlarge: 700;
+
+  // h1 18-24
+  --font-size-xl: clamp(1.13rem, 0.49vw + 1.01rem, 1.5rem);
+  // h2 15-20
+  --font-size-lg: clamp(0.94rem, 0.41vw + 0.84rem, 1.25rem);
+  // h3 13-18
+  --font-size-medium: clamp(0.81rem, 0.41vw + 0.72rem, 1.13rem);
+  // p 13 - 16
+  --font-size-base: clamp(0.81rem, 0.24vw + 0.76rem, 1rem);
+
+  --rounded-base: 10px;
+
+
+  --header-height: 75px;
+}
+

@@ -1,0 +1,46 @@
+.btn {
+  color: var(--text-color, var(--clr-white));
+  background-color: var(--bg-color, var(--clr-blue-5));
+
+  padding-block: 0.81rem;
+  padding-inline: 1.185rem;
+  // border-radius: var(--radius-base);
+  font-size: var(--font-size-medium);
+
+  border-radius: 7px;
+  font-weight: var(--fw-xlarge);
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+
+  &:where(:hover, :focus-within) {
+    background-color: var(--bg-color-hover);
+  }
+
+  &[data-type="1"] {
+    --bg-color: var(--clr-purple);
+    --bg-color-hover: var(--clr-purple-hover);
+  }
+
+  &[data-type="2"] {
+    --bg-color: var(--clr-blue-5);
+    --bg-color-hover: var(--clr-blue-5-hover);
+  }
+
+  &[data-type="3"] {
+    --bg-color: var(--clr-dark-blue-5);
+    --bg-color-hover: var(--clr-dark-blue-5-hover);
+  }
+
+  &[data-type="4"] {
+    --bg-color: var(--clr-red);
+    --bg-color-hover: var(--clr-red-hover);
+  }
+
+  // &[data-type="5"] {
+  // }
+
+  // &[data-type="6"] {
+  // }
+}

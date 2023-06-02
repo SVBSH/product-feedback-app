@@ -1,0 +1,19 @@
+.tag {
+  // reset for button user-agent styles
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: inherit;
+  
+  color: var(--clr-blue-5);
+  padding-block: 0.3em;
+  padding-inline: 1.2em;
+  background-color: var(--clr-grey-3);
+  font-weight: var(--fw-xlarge);
+  border-radius: var(--rounded-base);
+
+  &:where(:hover, :focus-within) {
+    background-color: var(--clr-blue-5);
+    color: var(--clr-white);
+  }
+}

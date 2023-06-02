@@ -1,0 +1,56 @@
+.rounded-base {
+  border-radius: var(--radius-base);
+}
+
+.font-base {
+  font-weight: var(--fw-base);
+}
+
+.font-medium {
+  font-weight: var(--fw-large);
+}
+
+.font-bold {
+  font-weight: var(--fw-xlarge);
+}
+
+.card {
+  border-radius: var(--rounded-base);
+  padding-block: 1.5rem;
+  padding-inline: 1.5rem;
+  // border: 1px solid red;
+  @media (min-width: 700px) {
+    padding-block: 1.75rem;
+    padding-inline: 1.75rem;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.flex {
+  display: flex;
+  gap: var(--gap, 1rem);
+}
+
+.grid {
+  display: grid;
+  gap: var(--gap, 1rem);
+}
+
+.grid-col {
+  grid-auto-flow: column;
+}
+
+.grid-row {
+  grid-auto-flow: row;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-col {
+  flex-direction: column;
+}
