@@ -18,7 +18,7 @@ function Root() {
         <header className={styles["header"]}>
           <div className={styles["header__info"]}>
             <h1 className="text-white">Frontend Mentor</h1>
-            <p className="text-white">Feedback Board</p>
+            <p className="text-grey-3">Feedback Board</p>
           </div>
           <div
             className={styles["menu-control"]}
