@@ -11,17 +11,17 @@ import Root from './routes/root/root';
 import ErrorPage from './error-page';
 import Roadmap from './routes/roadmap/Roadmap';
 
-  // {
-  //   path: "feedback-detail/:feedbackId"
-  //   // element: <FeedbackDetail />
-  // },
-  // {
-  //   path: "new-feedback",
-  //   // element: <CreateFeedback />
-  // }, {
-  //   path: "edit-feedback/:feedbackId",
-  //   // element: <EditFeedback />
-  // }
+// {
+//   path: "feedback-detail/:feedbackId"
+//   // element: <FeedbackDetail />
+// },
+// {
+//   path: "new-feedback",
+//   // element: <CreateFeedback />
+// }, {
+//   path: "edit-feedback/:feedbackId",
+//   // element: <EditFeedback />
+// }
 
 const router = createBrowserRouter([
   {
@@ -30,7 +30,7 @@ const router = createBrowserRouter([
     errorElement: <ErrorPage />,
   },
   {
-    path: "/roadmap",
+    path: "/product-feedback-app/roadmap",
     element: <Roadmap />
   },
 ]);
