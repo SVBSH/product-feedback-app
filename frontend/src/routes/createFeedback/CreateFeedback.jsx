@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 import styles from './css/index.module.css'
 
 
@@ -28,11 +30,11 @@ function CreateFeedback() {
         <fieldset className={styles['form-group']}>
           <label className='font-bold color-dark-blue-5'>Feedback Detail</label>
           <p>Include any specific comments on what should be improved, added, etc.</p>
-          <textarea  name="Feedback detail" id="" cols="30" rows="10"></textarea>
+          <textarea name="Feedback detail" id="" cols="30" rows="10"></textarea>
         </fieldset>
 
         <fieldset className={styles['form-group']}>
-          <button className='btn' data-type="3">Cancel</button>
+          <Link className={'btn'} data-type="3" to='/'>Cancel</Link>
           <button className='btn' data-type="1">Add Feedback</button>
         </fieldset>
       </form>

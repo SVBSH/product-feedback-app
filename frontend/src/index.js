@@ -10,7 +10,7 @@ import {
 import Root from './routes/root/root';
 import ErrorPage from './error-page';
 import Roadmap from './routes/roadmap/Roadmap';
-import CreateFeedback from './components/createFeedback/CreateFeedback';
+import CreateFeedback from './routes/createFeedback/CreateFeedback';
 // {
 //   path: "feedback-detail/:feedbackId"
 //   // element: <FeedbackDetail />

@@ -166,6 +166,7 @@ input:where(:hover, :focus-within) {
 }
 
 .btn {
+  text-decoration: none;
   color: var(--text-color, var(--clr-white));
   background-color: var(--bg-color, var(--clr-blue-5));
   padding-block: 0.81rem;

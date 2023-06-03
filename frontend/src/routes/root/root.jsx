@@ -3,6 +3,7 @@ import imgIconSuggestions from '../../assets/suggestions/icon-suggestions.svg';
 import imgMenuOpen from '../../assets/shared/mobile/icon-hamburger.svg';
 import imgMenuClose from '../../assets/shared/mobile/icon-close.svg';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import iconSuggestionEmpty from '../../assets/suggestions/illustration-empty.svg';
 import Suggestion from '../../components/suggestion/Suggestion';
@@ -106,7 +107,12 @@ function Root() {
               <button className='font-bold text-white'>Most Upvotes</button>
             </div>
 
-            <button className={styles['add-feedback'] + " btn"} data-type="1">+ Add Feedback</button>
+            <Link
+              to="/new-feedback"
+              className={styles['add-feedback'] + " btn"}
+              data-type="1">
+              + Add Feedback
+            </Link>
           </div>
           {/* <ul className={styles['suggestion-list']} role="list">
             <Suggestion />
@@ -114,10 +120,10 @@ function Root() {
           <div className={styles["empty-feedback"] + " | card bg-white"}>
             <img
               src={iconSuggestionEmpty}
-              alt="empty suggestions" 
+              alt="empty suggestions"
               width="102px"
               height="108px"
-              />
+            />
 
             <div className={styles["empty-feedback__info"]}>
               <h2 className=''>
@@ -126,11 +132,12 @@ function Root() {
               <p>
                 Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.
               </p>
-              <button className='btn' data-type="1">
+              <Link
+                to="/new-feedback"
+                className={styles['add-feedback'] + " btn"}
+                data-type="1">
                 + Add Feedback
-              </button>
-
-              <input type="text" defaultValue="Add a dark theme option" />
+              </Link>
             </div>
           </div>
         </main>
