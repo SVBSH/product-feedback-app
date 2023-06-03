@@ -114,6 +114,14 @@ p {
   color: var(--clr-grey-4);
 }
 
+button {
+  cursor: pointer;
+}
+
+textarea {
+  resize: none;
+}
+
 textarea,
 input {
   display: block;
@@ -153,6 +161,7 @@ input:where(:hover, :focus-within) {
   --clr-orange: hsla(14, 83%, 74%, 1);
   --clr-red: hsla(0, 67%, 53%, 1);
   --clr-red-hover: hsla(0, 69%, 72%, 1);
+  --clr-comment-border: hsla(231, 20%, 63%, 0.25);
   --font-family: "Jost", sans-serif;
   --fw-base: 400;
   --fw-large: 600;
@@ -180,7 +189,7 @@ input:where(:hover, :focus-within) {
   font-size: 1rem;
 }
 .btn:where(:hover, :focus-within) {
-  background-color: var(--bg-color-hover);
+  background-color: var(--bg-color-hover, red);
 }
 .btn[data-type="1"] {
   --bg-color: var(--clr-purple);
@@ -198,6 +207,35 @@ input:where(:hover, :focus-within) {
   --bg-color: var(--clr-red);
   --bg-color-hover: var(--clr-red-hover);
 }
+.btn[data-type="5"], .btn[data-type="5-1"] {
+  --bg-color: transparent;
+  --text-color: var(--clr-dark-blue-5);
+  --bg-color-hover: transparent;
+}
+.btn[data-type="6"], .btn[data-type="6-1"] {
+  --bg-color: transparent;
+  --text-color: var(--clr-dark-blue-5);
+  --bg-color-hover: transparent;
+}
+.btn[data-type="6"]:hover, .btn[data-type="6-1"]:hover {
+  text-decoration: underline;
+}
+.btn[data-arrow=true] {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding-inline: 0rem;
+}
+.btn[data-arrow=true]::before {
+  content: "";
+  display: block;
+  background-image: url("/src/assets/shared/icon-arrow-left.svg");
+  background-repeat: no-repeat;
+  margin-right: 0.4em;
+  margin-block: auto;
+  width: 7px;
+  height: 10px;
+}
 
 .tag {
   cursor: pointer;
@@ -214,6 +252,20 @@ input:where(:hover, :focus-within) {
 .tag:where(:hover, :focus-within) {
   background-color: var(--clr-blue-5);
   color: var(--clr-white);
+}
+
+.select {
+  background-color: red;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  padding-block: 1em;
+}
+.select-option {
+  padding-block: 1em;
+}
+.select > * {
+  padding: 2em;
 }
 
 .text-purple {

@@ -1,0 +1,13 @@
+.select {
+  background-color: red;
+  appearance: none;
+  padding-block: 1em;
+
+  &-option {
+    padding-block: 1em;
+  }
+
+  & > * {
+    padding: 2em;
+  }
+}

@@ -16,7 +16,7 @@
   font-size: 1rem;
 
   &:where(:hover, :focus-within) {
-    background-color: var(--bg-color-hover);
+    background-color: var(--bg-color-hover, red);
   }
 
   &[data-type="1"] {
@@ -39,9 +39,39 @@
     --bg-color-hover: var(--clr-red-hover);
   }
 
-  // &[data-type="5"] {
-  // }
+  &[data-type="5"], 
+  &[data-type="5-1"] {
+    --bg-color: transparent;
+    --text-color: var(--clr-dark-blue-5);
+    --bg-color-hover: transparent;
+  }
 
-  // &[data-type="6"] {
-  // }
+  &[data-type="6"],
+  &[data-type="6-1"] {
+    --bg-color: transparent;
+    --text-color: var(--clr-dark-blue-5);
+    --bg-color-hover: transparent;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+
+  &[data-arrow="true"] {
+    display: flex;
+    padding-inline: 0rem;
+
+
+    &::before {
+      content: "";
+      display: block;
+      background-image: url("/src/assets/shared/icon-arrow-left.svg");
+      background-repeat: no-repeat;
+      margin-right: .4em;
+      margin-block: auto;
+      width: 7px;
+      height: 10px;
+    }
+  }
 }

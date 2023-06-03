@@ -7,6 +7,14 @@ function CreateFeedback() {
 
   return (
     <main className={styles['create-feedback'] + ' | '}>
+      {/* button.go-back */}
+      <Link
+        to="/"
+        className='btn'
+        data-type="5"
+        data-arrow="true">
+          Go Back
+      </Link>
       <form
         className={styles['form'] + " | card bg-white card"}
         onSubmit={e => {

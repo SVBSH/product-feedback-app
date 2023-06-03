@@ -8,9 +8,11 @@ import {
 } from 'react-router-dom';
 
 import Root from './routes/root/root';
+import EditFeedback from './routes/editFeedback/EditFeedback';
 import ErrorPage from './error-page';
 import Roadmap from './routes/roadmap/Roadmap';
 import CreateFeedback from './routes/createFeedback/CreateFeedback';
+import FeedbackDetail from './routes/feedbackDetail/FeedbackDetail';
 // {
 //   path: "feedback-detail/:feedbackId"
 //   // element: <FeedbackDetail />
@@ -26,7 +28,8 @@ import CreateFeedback from './routes/createFeedback/CreateFeedback';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    // element: <Root />,
+    element: <FeedbackDetail />,
     errorElement: <ErrorPage />,
   },
   {
@@ -37,6 +40,10 @@ const router = createBrowserRouter([
     path: "/new-feedback",
     element: <CreateFeedback />
   },
+  {
+    path: "edit-feedback",
+    element: <EditFeedback feedbackTitle={"Add a dark theme option"} />
+  }
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

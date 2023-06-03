@@ -1,0 +1,77 @@
+.create-feedback {
+  display: grid;
+  place-content: center;
+  margin-block: auto;
+  min-height: inherit;
+  max-width: 90%;
+  margin-inline: auto;
+}
+
+.form {
+  position: relative;
+
+  display: grid;
+  gap: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+
+    height: 56px;
+    aspect-ratio: 1 / 1;
+
+    border-radius: 50%;
+    background-image: url("../../../assets/shared/icon-edit-feedback.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+  }
+
+  &__title {
+    margin-top: 2rem;
+    margin-bottom: 1.5em;
+  }
+
+  &-group {
+  }
+
+  textarea {
+    resize: none;
+    max-height: 120px;
+  }
+
+  textarea,
+  input {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+.form-group {
+  border: none;
+  padding: 0;
+  width: 100%;
+
+  
+
+  &:last-child {
+    display: flex;
+    text-align: center;
+    gap: 1rem;
+    flex-direction: column;
+
+    @media (min-width: 700px) {
+      flex-direction: row;
+      .btn-remove-feedback {
+        margin-right: auto;
+        --bg-color: var(--clr-red);
+        --bg-color-hover: var(--clr-red-hover);
+      }
+    }
+  }
+}
+
+

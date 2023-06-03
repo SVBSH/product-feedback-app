@@ -4,12 +4,14 @@ import imgMenuOpen from '../../assets/shared/mobile/icon-hamburger.svg';
 import imgMenuClose from '../../assets/shared/mobile/icon-close.svg';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-
+import SUGGESTION_TAGS from '../../data/suggestion-tags';
 import iconSuggestionEmpty from '../../assets/suggestions/illustration-empty.svg';
 import Suggestion from '../../components/suggestion/Suggestion';
 
 
 function Root() {
+  const [activeTagIndex, setActiveTagIndex] = useState(0);
+
   const [menuOpen, setMenuOpen] = useState(false);
   function handleMenuStatus() {
     setMenuOpen(menuOpen => !menuOpen);
@@ -25,10 +27,7 @@ function Root() {
           </div>
           <div
             className={styles["menu-control"]}
-            onClick={handleMenuStatus}
-          >
-            {/* TODO: make buttons */}
-
+            onClick={handleMenuStatus}>
             <button>
               <img src={imgMenuOpen} width="20px" height="17px" className={menuOpen ? 'hidden' : ''} alt="open" />
               <img src={imgMenuClose} width="18px" height="17px" className={menuOpen ? '' : 'hidden'} alt="close" />
@@ -47,24 +46,13 @@ function Root() {
         >
           <aside className={styles['aside']}>
             <ul className={styles['tag-list'] + " card"} role="list">
-              <li data-active="true">
-                <button className='tag'>All</button>
-              </li>
-              <li>
-                <button className='tag'>UI</button>
-              </li>
-              <li>
-                <button className='tag'>UX</button>
-              </li>
-              <li>
-                <button className='tag'>Enhancement</button>
-              </li>
-              <li>
-                <button className='tag'>Bug</button>
-              </li>
-              <li>
-                <button className='tag'>Feature</button>
-              </li>
+              {SUGGESTION_TAGS.map(
+                (tag, index) => (
+                  <li data-active={activeTagIndex === index}>
+                    <button className='tag'>{tag}</button>
+                  </li>
+                )
+              )}
             </ul>
             <div className={styles["roadmap"] + " card"}>
               <div className={styles["roadmap-info"]}>

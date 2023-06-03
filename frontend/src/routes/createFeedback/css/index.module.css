@@ -21,6 +21,8 @@
   aspect-ratio: 1/1;
   border-radius: 50%;
   background-image: url("../../../assets/shared/icon-new-feedback.svg");
+  background-position: center;
+  background-size: contain;
   background-repeat: no-repeat;
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
@@ -37,6 +39,11 @@
 .form input {
   margin-top: 1rem;
   width: 100%;
+}
+@media (min-width: 1100px) {
+  .form {
+    margin-bottom: 9rem;
+  }
 }
 
 .form-group {

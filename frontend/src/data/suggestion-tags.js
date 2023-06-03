@@ -1,4 +1,4 @@
-const f = [
+const SUGGESTION_TAGS = [
   "UI",
   "UX",
   "Enhancement",
@@ -6,4 +6,4 @@ const f = [
   "Feature"
 ]
 
-export default f;
+export default SUGGESTION_TAGS;
