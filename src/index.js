@@ -25,16 +25,16 @@ import CreateFeedback from './components/createFeedback/CreateFeedback';
 
 const router = createBrowserRouter([
   {
-    path: "/product-feedback-app/",
+    path: "/",
     element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
-    path: "/product-feedback-app/roadmap",
+    path: "/roadmap",
     element: <Roadmap />
   },
   {
-    path: "/product-feedback-app/new-feedback",
+    path: "/new-feedback",
     element: <CreateFeedback />
   },
 ]);
