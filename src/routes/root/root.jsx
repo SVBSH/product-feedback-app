@@ -1,9 +1,11 @@
 import styles from './css/index.module.css';
-import iconComments from '../../assets/shared/icon-comments.svg'
 import imgIconSuggestions from '../../assets/suggestions/icon-suggestions.svg';
 import imgMenuOpen from '../../assets/shared/mobile/icon-hamburger.svg';
 import imgMenuClose from '../../assets/shared/mobile/icon-close.svg';
 import { useState } from 'react';
+
+import iconSuggestionEmpty from '../../assets/suggestions/illustration-empty.svg';
+import Suggestion from '../../components/suggestion/Suggestion';
 
 
 function Root() {
@@ -27,8 +29,8 @@ function Root() {
             {/* TODO: make buttons */}
 
             <button>
-              <img src={imgMenuOpen} width="20px" height="17px" className={menuOpen ? 'hidden' : ''} alt="" />
-              <img src={imgMenuClose} width="18px" height="17px" className={menuOpen ? '' : 'hidden'} alt="" />
+              <img src={imgMenuOpen} width="20px" height="17px" className={menuOpen ? 'hidden' : ''} alt="open" />
+              <img src={imgMenuClose} width="18px" height="17px" className={menuOpen ? '' : 'hidden'} alt="close" />
             </button>
           </div>
         </header>
@@ -106,210 +108,31 @@ function Root() {
 
             <button className={styles['add-feedback'] + " btn"} data-type="1">+ Add Feedback</button>
           </div>
-          <ul className={styles['suggestion-list']} role="list">
-            <li className={styles['suggestion'] + ' | card'}>
+          {/* <ul className={styles['suggestion-list']} role="list">
+            <Suggestion />
+          </ul> */}
+          <div className={styles["empty-feedback"] + " | card bg-white"}>
+            <img
+              src={iconSuggestionEmpty}
+              alt="empty suggestions" 
+              width="102px"
+              height="108px"
+              />
 
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
+            <div className={styles["empty-feedback__info"]}>
+              <h2 className=''>
+                There is no feedback yet.
+              </h2>
+              <p>
+                Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.
+              </p>
+              <button className='btn' data-type="1">
+                + Add Feedback
+              </button>
 
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-
-            <li className={styles['suggestion'] + ' | card'}>
-
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
-
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-
-            <li className={styles['suggestion'] + ' | card'}>
-
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
-
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-
-            <li className={styles['suggestion'] + ' | card'}>
-
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
-
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-
-            <li className={styles['suggestion'] + ' | card'}>
-
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
-
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-
-            <li className={styles['suggestion'] + ' | card'}>
-
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
-
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-
-            <li className={styles['suggestion'] + ' | card'}>
-
-              <div className={styles["votes-counter"]}>
-                <p className={styles['votes-count'] + " | tag"}>
-                  112
-                </p>
-              </div>
-
-              <div className={styles["suggestion-info"]}>
-                <h2 className={styles['suggestion-title']}>
-                  Add tags for solutions
-                </h2>
-                <p>Easier to search for solutions based on a specific stack.</p>
-                <button className='tag'>
-                  Enhancement
-                </button>
-              </div>
-
-              <div className={styles["comment-wrapper"]}>
-                <img
-                  src={iconComments}
-                  width="18px"
-                  height="16px"
-                  className={styles['icon-comments']}
-                  alt="" />
-                <p className={styles['comment-count'] + " | font-bold"}>2</p>
-              </div>
-            </li>
-          </ul>
+              <input type="text" defaultValue="Add a dark theme option" />
+            </div>
+          </div>
         </main>
       </div>
 

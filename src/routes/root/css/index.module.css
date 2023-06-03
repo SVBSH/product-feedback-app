@@ -302,3 +302,33 @@
     display: block;
   }
 }
+
+.empty-feedback {
+  width: clamp(20rem, 90%, 1100px);
+  margin-inline: auto;
+  margin-top: 3rem;
+  min-height: 600px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  text-align: center;
+}
+.empty-feedback img {
+  margin-bottom: 2.75rem;
+}
+.empty-feedback__info {
+  display: grid;
+  gap: 1.5rem;
+}
+.empty-feedback__info p {
+  max-width: 40ch;
+}
+.empty-feedback__info button {
+  justify-self: center;
+}
+@media (min-width: 700px) {
+  .empty-feedback {
+    width: auto;
+    margin-top: 1.5rem;
+  }
+}

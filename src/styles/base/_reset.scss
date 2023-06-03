@@ -111,5 +111,29 @@ h3 {
 }
 
 p {
-  color: var(--clr-grey-4)
+  color: var(--clr-grey-4);
+}
+
+
+textarea,
+input {
+  display: block;
+  position: relative;
+
+  padding-inline: 1rem;
+  padding-block: 0.93rem;
+  color: var(--clr-dark-blue-5);
+  background-color: var(--clr-grey-2);
+  border: 1px solid transparent;
+  border-radius: 5px;
+  outline: none;
+  padding-bottom: 1rem;
+
+  &:where(:hover, :focus-within) {
+    border: 1px solid var(--clr-blue-5);
+  }
+}
+
+#root {
+  min-height: inherit;
 }

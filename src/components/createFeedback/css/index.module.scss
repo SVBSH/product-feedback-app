@@ -1,0 +1,62 @@
+.create-feedback {
+  display: grid;
+  place-content: center;
+  margin-block: auto;
+  min-height: inherit;
+  max-width: 90%;
+  margin-inline: auto;
+}
+
+.form {
+  position: relative;
+
+  display: grid;
+  gap: 1rem;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 1.5rem;
+
+    height: 56px;
+    aspect-ratio: 1 / 1;
+    border-radius: 50%;
+    background-image: url("../../../assets/shared/icon-new-feedback.svg");
+    background-repeat: no-repeat;
+    transform: translateY(-50%);
+  }
+
+  &__title {
+    margin-top: 2rem;
+    margin-bottom: 1.5em;
+  }
+
+  &-group {
+  }
+
+  textarea {
+    resize: none;
+    max-height: 120px;
+  }
+
+  textarea,
+  input {
+    margin-top: 1rem;
+    width: 100%;
+  }
+}
+
+.form-group {
+  border: none;
+  padding: 0;
+
+  &:last-child {
+    display: grid;
+    gap: 1rem;
+    @media (min-width: 700px) {
+      grid-auto-flow: column;
+      justify-self: end;
+    }
+  }
+}

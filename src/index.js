@@ -10,7 +10,7 @@ import {
 import Root from './routes/root/root';
 import ErrorPage from './error-page';
 import Roadmap from './routes/roadmap/Roadmap';
-
+import CreateFeedback from './components/createFeedback/CreateFeedback';
 // {
 //   path: "feedback-detail/:feedbackId"
 //   // element: <FeedbackDetail />
@@ -32,6 +32,10 @@ const router = createBrowserRouter([
   {
     path: "/product-feedback-app/roadmap",
     element: <Roadmap />
+  },
+  {
+    path: "/product-feedback-app/new-feedback",
+    element: <CreateFeedback />
   },
 ]);
 

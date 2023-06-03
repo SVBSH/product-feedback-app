@@ -1,0 +1,56 @@
+.suggestion {
+  background-color: var(--clr-white);
+  display: grid;
+  gap: 1rem;
+}
+.suggestion:where(:hover, :focus-within) h2 {
+  color: var(--clr-blue-5);
+}
+.suggestion-info {
+  grid-row: 1;
+  display: grid;
+  gap: 0.5em;
+  justify-items: start;
+}
+.suggestion .votes-counter {
+  grid-row: 2;
+  grid-column: 1;
+  justify-self: start;
+}
+.suggestion .comment-wrapper {
+  grid-row: 2;
+  grid-column: 2;
+  justify-self: end;
+}
+@media (min-width: 700px) {
+  .suggestion {
+    grid-template-columns: -webkit-max-content 1fr -webkit-max-content;
+    grid-template-columns: max-content 1fr max-content;
+    grid-template-rows: 1fr;
+  }
+  .suggestion .votes-counter {
+    grid-column: 1;
+    grid-row: 1;
+    justify-self: start;
+  }
+  .suggestion-info {
+    grid-column: 2;
+    grid-row: 1;
+  }
+  .suggestion .comment-wrapper {
+    grid-column: 3;
+    grid-row: 1;
+  }
+}
+
+.comment-wrapper {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 0.5em;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.comment-wrapper .comment-count {
+  color: var(--clr-dark-blue-5);
+}
