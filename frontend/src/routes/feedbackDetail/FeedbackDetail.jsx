@@ -1,9 +1,38 @@
 import styles from './css/index.module.css';
 import Suggestion from '../../components/suggestion/Suggestion';
-import iconUserAnne from '../../assets/user-images/image-anne.jpg';
 import { Link } from 'react-router-dom';
+import FeedbackComment from './components/feedbackComment/FeedbackComment';
+
 
 function FeedbackDetail() {
+  const commentInfo = {
+    name: 'Elijah Moss',
+    userName: 'hexagon.bestagon',
+    content: 'Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.',
+    replies: [
+      {
+        name: 'Elijah Moss',
+        userName: 'hexagon.bestagon',
+        content: 'Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.'
+      },
+      {
+        name: 'James Skinner',
+        userName: 'hexagon.bestagon',
+        content: 'Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.'
+      },
+      {
+        name: 'Anne Valentine',
+        userName: 'hexagon.bestagon',
+        content: "While waiting for dark mode, there are browser extensions that will also do the job. Search for 'dark theme' followed by your browser. There might be a need to turn off the extension for sites with naturally black backgrounds though."
+      },
+      {
+        name: 'Ryan Welles',
+        userName: 'hexagon.bestagon',
+        content: "Good point! Using any kind of style extension is great and can be highly customizable, like the ability to change contrast and brightness. I'd prefer not to use one of such extensions, however, for security and privacy reasons."
+      }
+    ]
+  };
+
   return (
     <main className={styles["main"]}>
 
@@ -18,171 +47,7 @@ function FeedbackDetail() {
         <h1 className={styles['comment-count']}>4 Comments</h1>
         {/* List of user comments on suggestion */}
         <ul className={styles["comments"] + ""}>
-          <li className={styles["comment"]}>
-            <img
-              width="40px"
-              height="40px"
-              className={styles['user-img']}
-              src={iconUserAnne}
-              alt="user" />
-            <h2 className={styles['user-name']}>Elijah Moss</h2>
-            <p className={styles['user-email']}>@hexagon.bestagon</p>
-            <div className={styles["lal"]}>
-              <p className={styles['comment-text']}>
-                Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-              </p>
-              {/* Reply Form - shows after user clicks on reply button */}
-
-              {/* <form action="" className={styles['reply-form']}>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button type='submit' className='btn' data-type="1">Post Reply</button>
-              </form> */}
-            </div>
-            
-            {/* List of Reply-Comments */}
-            <ul className={styles["reply-list"]}>
-              <li className={styles["comment"]} data-type="reply">
-                <img
-                  width="40px"
-                  height="40px"
-                  className={styles['user-img']}
-                  src={iconUserAnne}
-                  alt="user" />
-                <h2 className={styles['user-name']}>Elijah Moss</h2>
-                <p className={styles['user-email']}>@hexagon.bestagon</p>
-                <button
-                  data-type="6"
-                  className={styles['reply-btn'] + ' | btn text-blue-5 font-medium'}>
-                  Reply
-                </button>
-
-                <div className={styles["lal"]}>
-                  <p className={styles['comment-text']}>
-                    Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-                  </p>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li className={styles["comment"]}>
-            <img
-              width="40px"
-              height="40px"
-              className={styles['user-img']}
-              src={iconUserAnne}
-              alt="user" />
-            <h2 className={styles['user-name']}>Elijah Moss</h2>
-            <p className={styles['user-email']}>@hexagon.bestagon</p>
-            <div className={styles["lal"]}>
-              <p className={styles['comment-text']}>
-                Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-              </p>
-            </div>
-            <ul className={styles["reply-list"]}></ul>
-          </li>
-
-          <li className={styles["comment"]}>
-            <img
-              width="40px"
-              height="40px"
-              className={styles['user-img']}
-              src={iconUserAnne}
-              alt="user" />
-            <h2 className={styles['user-name']}>Elijah Moss</h2>
-            <p className={styles['user-email']}>@hexagon.bestagon</p>
-            <button
-              data-type="6"
-              className={styles['reply-btn'] + ' | btn text-blue-5 font-medium'}>
-              Reply
-            </button>
-
-            <div className={styles["lal"]}>
-              <p className={styles['comment-text']}>
-                Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-              </p>
-              <form action="" className={styles['reply-form']}>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button type='submit' className='btn' data-type="1">Post Reply</button>
-              </form>
-            </div>
-
-            <ul className={styles["reply-list"]}>
-              <li className={styles["comment"]} data-type="reply">
-                <img
-                  width="40px"
-                  height="40px"
-                  className={styles['user-img']}
-                  src={iconUserAnne}
-                  alt="user" />
-                <h2 className={styles['user-name']}>Elijah Moss</h2>
-                <p className={styles['user-email']}>@hexagon.bestagon</p>
-                <button
-                  data-type="6"
-                  className={styles['reply-btn'] + ' | btn text-blue-5 font-medium'}>
-                  Reply
-                </button>
-
-                <div className={styles["lal"]}>
-                  <p className={styles['comment-text']}>
-                    Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-                  </p>
-                </div>
-              </li>
-              <li className={styles["comment"]} data-type="reply">
-                <img
-                  width="40px"
-                  height="40px"
-                  className={styles['user-img']}
-                  src={iconUserAnne}
-                  alt="user" />
-                <h2 className={styles['user-name']}>Elijah Moss</h2>
-                <p className={styles['user-email']}>@hexagon.bestagon</p>
-                <button
-                  data-type="6"
-                  className={styles['reply-btn'] + ' | btn text-blue-5 font-medium'}>
-                  Reply
-                </button>
-
-                <div className={styles["lal"]}>
-                  <p className={styles['comment-text']}>
-                    Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-                  </p>
-                  <form action="" className={styles['reply-form']}>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                    <button type='submit' className='btn' data-type="1">Post Reply</button>
-                  </form>
-                </div>
-              </li>
-            </ul>
-          </li>
-
-          <li className={styles["comment"]}>
-            <img
-              width="40px"
-              height="40px"
-              className={styles['user-img']}
-              src={iconUserAnne}
-              alt="user" />
-            <h2 className={styles['user-name']}>Elijah Moss</h2>
-            <p className={styles['user-email']}>@hexagon.bestagon</p>
-            <button
-              data-type="6"
-              className={styles['reply-btn'] + ' | btn text-blue-5 font-medium'}>
-              Reply
-            </button>
-            <div className={styles["lal"]}>
-              <p className={styles['comment-text']}>
-                Also, please allow styles to be applied based on system preferences. I would love to be able to browse Frontend Mentor in the evening after my device’s dark mode turns on without the bright background it currently has.
-              </p>
-              <form action="" className={styles['reply-form']}>
-                <textarea name="" id="" cols="30" rows="10"></textarea>
-                <button type='submit' className='btn' data-type="1">Post Reply</button>
-              </form>
-            </div>
-
-            <ul className={styles["reply-list"]}></ul>
-          </li>
+          <FeedbackComment commentInfo={commentInfo} isReply={false} />
         </ul>
       </div>
 

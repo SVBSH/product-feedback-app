@@ -28,8 +28,7 @@ import FeedbackDetail from './routes/feedbackDetail/FeedbackDetail';
 const router = createBrowserRouter([
   {
     path: "/",
-    // element: <Root />,
-    element: <FeedbackDetail />,
+    element: <Root />,
     errorElement: <ErrorPage />,
   },
   {
@@ -43,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "edit-feedback",
     element: <EditFeedback feedbackTitle={"Add a dark theme option"} />
+  },
+  {
+    path: "feedback-detail",
+    element: <FeedbackDetail />
   }
 ]);
 
