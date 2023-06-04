@@ -217,7 +217,7 @@ input:where(:hover, :focus-within) {
   --text-color: var(--clr-dark-blue-5);
   --bg-color-hover: transparent;
 }
-.btn[data-type="6"]:hover, .btn[data-type="6-1"]:hover {
+.btn[data-type="6"]:where(:focus-within, :hover), .btn[data-type="6-1"]:where(:focus-within, :hover) {
   text-decoration: underline;
 }
 .btn[data-arrow=true] {

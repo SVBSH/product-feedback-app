@@ -52,7 +52,7 @@
     --text-color: var(--clr-dark-blue-5);
     --bg-color-hover: transparent;
 
-    &:hover {
+    &:where(:focus-within, :hover) {
       text-decoration: underline;
     }
   }

@@ -1,5 +1,8 @@
 .main {
-  --_comment-line-adjustment: -2.4rem;
+  // based on width and height of user-image
+  --_comment-author-size: 40px;
+  --_comment-line-adjustment: 1.3rem;
+
   margin-inline: auto;
   margin-bottom: 9rem;
   width: 90%;
@@ -37,35 +40,39 @@
   display: grid;
   list-style: none;
   grid-template-columns: auto 1fr auto;
-  gap: 0rem 1rem;
 
   &[data-type="reply"] {
     position: relative;
+    margin: 0;
 
     & + & {
       padding-top: 1rem;
     }
   }
 
-  &[data-type="reply"]::before,
-  &:not([data-type="reply"]) > .lal::before {
+  // Comment - Left border
+  &:not([data-type="reply"]) > .lal::before,
+  // Reply comment: left border
+  &[data-type="reply"]::before {
     position: absolute;
     content: "";
     top: 0;
     bottom: 0;
     left: var(--_comment-line-adjustment);
-    background: var(--clr-comment-border);
+    left: 0;
+    background-color: var(--clr-comment-border);
     width: 1px;
   }
-
-  &[data-type="reply"]:last-child::before {
-    height: 30px;
-  }
-
-  .lal:has(.reply-list)::before {
+  // Border on Initial Comment shows on screen > 700px
+  &:not([data-type="reply"]) > .lal::before {
     display: none;
   }
+  // Last Reply Comment: decrease border height
+  &[data-type="reply"]:last-child::before {
+    height: var(--_comment-author-size);
+  }
 
+  // Border between top level comments
   &:not([data-type="reply"]) + &:not([data-type="reply"]) {
     border-top: 1px solid var(--clr-comment-border);
     padding-top: 1rem;
@@ -77,7 +84,8 @@
     grid-column: 1;
     border-radius: 50%;
     aspect-ratio: 1/1;
-    // align-self: center;
+    align-self: center;
+    margin-right: var(--_comment-line-adjustment);
   }
 
   .user-name {
@@ -100,34 +108,39 @@
   .lal {
     display: block;
     position: relative;
-    grid-column: 2/4;
+    grid-column: 1/4;
     padding-bottom: 1rem;
     grid-row: 3;
+    margin-top: 1rem;
+
+    &:has(.reply-list)::before {
+      display: none;
+    }
+
+    @media (min-width: 700px) {
+      grid-column: 1/4;
+
+      padding-left: calc(
+        var(--_comment-author-size) / 2 + var(--_comment-line-adjustment)
+      );
+      margin-left: calc(var(--_comment-author-size) / 2);
+    }
   }
 
   .reply-form {
     display: grid;
     gap: 1rem;
 
-
     & > textarea {
       max-height: 80px;
-
+      margin-top: 1rem;
       width: 100%;
     }
   }
 
-  & + & {
-  }
-
   @media (min-width: 700px) {
-    .user-img {
-      // margin-right: 2rem;
-    }
-
     .comment-text {
       padding: 0;
-      margin-block: 1rem;
       grid-row: 3;
       grid-column: 2 / 4;
     }
@@ -139,13 +152,20 @@
       align-items: start;
       grid-column: 2 / 4;
 
-
       & > textarea {
         margin-block: 0rem;
         max-height: 80px;
-        // flex-grow: 2;
         width: 100%;
       }
+    }
+
+    // All "non-replay" comments that dont'h have replay-comments within their body
+    &:not([data-type="reply"], :has(.reply-list:empty)) > .lal::before {
+      display: block;
+    }
+
+    &[data-type="reply"] {
+      margin-left: calc(var(--_comment-author-size) / 2);
     }
   }
 }
@@ -153,9 +173,18 @@
 .reply-list {
   padding: 0;
   position: relative;
-  grid-column: 2/4;
+  grid-column: 1/4;
   margin-left: 0rem;
   display: grid;
+
+  & > * {
+    padding-left: calc(var(--_comment-author-size) / 2);
+    margin-left: 1rem;
+  }
+
+  @media (min-width: 700px) {
+    grid-column: 1/4;
+  }
 }
 
 .add-comment-wrapper {

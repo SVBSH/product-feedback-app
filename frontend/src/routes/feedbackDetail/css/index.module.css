@@ -1,5 +1,6 @@
 .main {
-  --_comment-line-adjustment: -2.4rem;
+  --_comment-author-size: 40px;
+  --_comment-line-adjustment: 1.3rem;
   margin-inline: auto;
   margin-bottom: 9rem;
   width: 90%;
@@ -42,28 +43,29 @@
   display: grid;
   list-style: none;
   grid-template-columns: auto 1fr auto;
-  gap: 0rem 1rem;
 }
 .comment[data-type=reply] {
   position: relative;
+  margin: 0;
 }
 .comment[data-type=reply] + .comment[data-type=reply] {
   padding-top: 1rem;
 }
-.comment[data-type=reply]::before, .comment:not([data-type=reply]) > .lal::before {
+.comment:not([data-type=reply]) > .lal::before, .comment[data-type=reply]::before {
   position: absolute;
   content: "";
   top: 0;
   bottom: 0;
   left: var(--_comment-line-adjustment);
-  background: var(--clr-comment-border);
+  left: 0;
+  background-color: var(--clr-comment-border);
   width: 1px;
 }
-.comment[data-type=reply]:last-child::before {
-  height: 30px;
-}
-.comment .lal:has(.reply-list)::before {
+.comment:not([data-type=reply]) > .lal::before {
   display: none;
+}
+.comment[data-type=reply]:last-child::before {
+  height: var(--_comment-author-size);
 }
 .comment:not([data-type=reply]) + .comment:not([data-type=reply]) {
   border-top: 1px solid var(--clr-comment-border);
@@ -75,6 +77,8 @@
   grid-column: 1;
   border-radius: 50%;
   aspect-ratio: 1/1;
+  align-self: center;
+  margin-right: var(--_comment-line-adjustment);
 }
 .comment .user-name {
   align-self: end;
@@ -93,9 +97,20 @@
 .comment .lal {
   display: block;
   position: relative;
-  grid-column: 2/4;
+  grid-column: 1/4;
   padding-bottom: 1rem;
   grid-row: 3;
+  margin-top: 1rem;
+}
+.comment .lal:has(.reply-list)::before {
+  display: none;
+}
+@media (min-width: 700px) {
+  .comment .lal {
+    grid-column: 1/4;
+    padding-left: calc(var(--_comment-author-size) / 2 + var(--_comment-line-adjustment));
+    margin-left: calc(var(--_comment-author-size) / 2);
+  }
 }
 .comment .reply-form {
   display: grid;
@@ -103,12 +118,12 @@
 }
 .comment .reply-form > textarea {
   max-height: 80px;
+  margin-top: 1rem;
   width: 100%;
 }
 @media (min-width: 700px) {
   .comment .comment-text {
     padding: 0;
-    margin-block: 1rem;
     grid-row: 3;
     grid-column: 2/4;
   }
@@ -127,14 +142,29 @@
     max-height: 80px;
     width: 100%;
   }
+  .comment:not([data-type=reply], :has(.reply-list:empty)) > .lal::before {
+    display: block;
+  }
+  .comment[data-type=reply] {
+    margin-left: calc(var(--_comment-author-size) / 2);
+  }
 }
 
 .reply-list {
   padding: 0;
   position: relative;
-  grid-column: 2/4;
+  grid-column: 1/4;
   margin-left: 0rem;
   display: grid;
+}
+.reply-list > * {
+  padding-left: calc(var(--_comment-author-size) / 2);
+  margin-left: 1rem;
+}
+@media (min-width: 700px) {
+  .reply-list {
+    grid-column: 1/4;
+  }
 }
 
 .add-comment-wrapper {
