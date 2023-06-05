@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -L index"
+    "start": "nodemon -L index",
+    "vercel-build": "echo la"
   },
   "dependencies": {
     "dotenv": "^16.1.4",
