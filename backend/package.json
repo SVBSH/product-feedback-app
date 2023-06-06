@@ -4,8 +4,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "nodemon -L index",
-    "vercel-build": "echo la"
+    "start": "node -L index",
+    "dev": "nodemon -L index"
   },
   "dependencies": {
     "cors": "^2.8.5",
