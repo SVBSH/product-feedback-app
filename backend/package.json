@@ -8,6 +8,7 @@
     "vercel-build": "echo la"
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^16.1.4",
     "express": "~4.16.1",
     "mongodb": "5.6",

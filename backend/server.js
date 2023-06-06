@@ -2,7 +2,6 @@ import 'dotenv/config'
 
 import express from 'express';
 import morgan from 'morgan';
-
 import { default as userRouter } from './routes/users.js';
 import { getDirName } from './libs/helper.js';
 
@@ -10,13 +9,16 @@ import router from './routes/ProductRequests.router.js';
 
 const app = express();
 // Logs middleware
-app.use(morgan('tiny'))
+app.use(morgan('tiny'));
+// app.use(cors());
+import cors from 'cors';
 
 const __dirname = getDirName(import.meta.url);
 app.use(express.static(__dirname + '/public'));
 
 
 app.use(express.json());
+app.use(cors());
 
 
 function logger(req, res, next) {
