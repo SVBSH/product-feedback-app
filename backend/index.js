@@ -6,10 +6,6 @@ const DB_URI = process.env.PRODUCT_FEEDBACK_APP_DB_URI;
 const DB_COLLECTION = process.env.PRODUCT_FEEDBACK_APP_NS;
 const PORT = process.env.SERVER_PORT || 9000
 
-async function foo() {
-  const request = await ProductRequestsDAO.getAllRequests();
-  console.log(request);
-}
 
 MongoClient.connect(DB_URI).then(
   async client => {
