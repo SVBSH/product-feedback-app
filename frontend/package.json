@@ -1,6 +1,6 @@
 {
   "name": "product-feedback-app",
-  "homepage": "https://svbsh.github.io",
+  "homepage": "https://product-feedback-app-svbsh.netlify.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -50,6 +50,7 @@
     "crypto-browserify": "^3.12.0",
     "gh-pages": "^5.0.0",
     "https-browserify": "^1.0.0",
+    "netlify-cli": "^15.4.0",
     "os-browserify": "^0.3.0",
     "process": "^0.11.10",
     "stream-browserify": "^3.0.0",
