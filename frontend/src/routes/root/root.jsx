@@ -18,10 +18,10 @@ function Root() {
   }
 
   async function search() {
-    // const result = await axios.get(
-      // '/.netlify/functions/get_movies'
-    // );
-    // console.log(result);
+    const result = await axios.get(
+      '/.netlify/functions/get_movies'
+    );
+    console.log(result);
   }
   search();
 
