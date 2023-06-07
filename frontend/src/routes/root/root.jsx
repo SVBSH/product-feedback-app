@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import SUGGESTION_TAGS from '../../data/suggestion-tags';
 import iconSuggestionEmpty from '../../assets/suggestions/illustration-empty.svg';
 import Suggestion from '../../components/suggestion/Suggestion';
-
+import axios from 'axios';
 
 function Root() {
   const [activeTagIndex, setActiveTagIndex] = useState(0);
@@ -16,6 +16,14 @@ function Root() {
   function handleMenuStatus() {
     setMenuOpen(menuOpen => !menuOpen);
   }
+
+  async function search() {
+    const result = await axios.get(
+      '/.netlify/functions/hello-world'
+    );
+    console.log(result);
+  }
+  search();
 
   return (
     <>
