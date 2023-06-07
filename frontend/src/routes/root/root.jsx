@@ -2,7 +2,7 @@ import styles from './css/index.module.css';
 import imgIconSuggestions from '../../assets/suggestions/icon-suggestions.svg';
 import imgMenuOpen from '../../assets/shared/mobile/icon-hamburger.svg';
 import imgMenuClose from '../../assets/shared/mobile/icon-close.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import SUGGESTION_TAGS from '../../data/suggestion-tags';
 import iconSuggestionEmpty from '../../assets/suggestions/illustration-empty.svg';
@@ -16,14 +16,17 @@ function Root() {
   function handleMenuStatus() {
     setMenuOpen(menuOpen => !menuOpen);
   }
-
-  async function search() {
-    const result = await axios.get(
-      '/.netlify/functions/get_movies'
-    );
-    console.log(result);
-  }
-  search();
+  const [result, setResult] = useState([]);
+  useEffect(() => {
+    async function search() {
+      const result = await axios.get(
+        '/.netlify/functions/get_movies'
+      );
+      console.log(await result.data);
+      setResult(await result.data);
+    }
+    search();
+  }, []);
 
   return (
     <>
