@@ -1,8 +1,8 @@
 [build]
   command = "npm run build"
-  functions = "lambda" # netlify-lambda reads this
+  functions = "functions"
   publish = "build"
-[[headers]]
-  for = "/*"
-    [headers.values]
-    Access-Control-Allow-Origin = "*"
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
