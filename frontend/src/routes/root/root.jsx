@@ -16,14 +16,14 @@ function Root() {
   function handleMenuStatus() {
     setMenuOpen(menuOpen => !menuOpen);
   }
-  const [result, setResult] = useState([]);
+  const [suggestions, setSuggestions] = useState([]);
   useEffect(() => {
     async function search() {
       const result = await axios.get(
-        '/.netlify/functions/get_movies'
+        '/.netlify/functions/get_all_suggestions'
       );
       console.log(await result.data);
-      setResult(await result.data);
+      setSuggestions(await result.data);
     }
     search();
   }, []);
@@ -113,10 +113,13 @@ function Root() {
               + Add Feedback
             </Link>
           </div>
-          {/* <ul className={styles['suggestion-list']} role="list">
-            <Suggestion />
-          </ul> */}
-          <div className={styles["empty-feedback"] + " | card bg-white"}>
+          <ul className={styles['suggestion-list']} role="list">
+            {
+              suggestions.map((suggestion) => <Suggestion content={suggestion} />)
+            }
+          </ul>
+          {(suggestions.length <= 0) &&
+            <div className={styles["empty-feedback"] + " | card bg-white"}>
             <img
               src={iconSuggestionEmpty}
               alt="empty suggestions"
@@ -137,8 +140,19 @@ function Root() {
                 data-type="1">
                 + Add Feedback
               </Link>
+              <button
+                onClick={async () => {
+                  await axios.get('/.netlify/functions/get_all_suggestions')
+                  // await fetch('/.netlify/functions/insert_movie', {
+                  //   method: 'POST',
+                  //   body: JSON.stringify({
+                  //     region: 'hoenn'
+                  //   })
+                  // });
+                }}
+              >Insert Movie</button>
             </div>
-          </div>
+          </div>}
         </main>
       </div>
 

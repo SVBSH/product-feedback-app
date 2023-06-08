@@ -1,10 +1,11 @@
 import styles from './css/index.module.css';
 import Suggestion from '../../components/suggestion/Suggestion';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useParams } from 'react-router-dom';
 import FeedbackComment from './components/feedbackComment/FeedbackComment';
 
 
-function FeedbackDetail() {
+function FeedbackDetail(props) {
+
   const commentInfo = {
     name: 'Elijah Moss',
     userName: 'hexagon.bestagon',
@@ -33,6 +34,9 @@ function FeedbackDetail() {
     ]
   };
 
+  const { state } = useLocation();
+  // console.log(state);
+
   return (
     <main className={styles["main"]}>
 
@@ -40,14 +44,16 @@ function FeedbackDetail() {
         <Link to="/" className='btn' data-type="5" data-arrow="true">Go Back</Link>
         <button className="btn" data-type="2">Edit Feedback</button>
       </div>
-
-      <Suggestion />
+      <Suggestion content={state} />
 
       <div className={styles["comments-wrapper"] + " | card bg-white"}>
         <h1 className={styles['comment-count']}>4 Comments</h1>
         {/* List of user comments on suggestion */}
         <ul className={styles["comments"] + ""}>
-          <FeedbackComment commentInfo={commentInfo} isReply={false} />
+          {
+            state.comments?.map((comment, index) =>
+              <FeedbackComment key={index} commentInfo={comment} isReply={false} />)
+          }
         </ul>
       </div>
 

@@ -1,35 +1,35 @@
 import iconComments from '../../assets/shared/icon-comments.svg'
-
+import { Link } from 'react-router-dom';
 
 import styles from './css/index.module.css';
 
 
 
 
-function Suggestion() {
-  const info = {
-    votesCount: 122,
-    title: 'Add a dark theme option',
-    text: 'It would help people with light sensitivities and who prefer dark mode.',
-    tag: 'Feature',
-    commentsCount: 12
-  }
+function Suggestion({ content
+}) {
+
   return (
     <li className={styles['suggestion'] + ' | card'}>
 
       <div className={styles["votes-counter"]}>
         <p className={styles['votes-count'] + " | tag"}>
-          {info.votesCount}
+          {content.upvotes}
         </p>
       </div>
 
       <div className={styles["suggestion-info"]}>
-        <h2 className={styles['suggestion-title']}>
-          {info.title}
-        </h2>
-        <p>{info.text}</p>
+        <Link
+          to={`/feedback-detail/${content.id}`}
+          state={content}
+        >
+          <h2 className={styles['suggestion-title']}>
+            {content.title}
+          </h2>
+        </Link>
+        <p>{content.description}</p>
         <button className='tag'>
-          {info.tag}
+          {content.category}
         </button>
       </div>
 
@@ -41,10 +41,10 @@ function Suggestion() {
           className={styles['icon-comments']}
           alt="" />
         <p className={styles['comment-count'] + " | font-bold"}>
-          {info.commentsCount}
+          {content.upvotes}
         </p>
       </div>
-    </li>
+    </li >
   )
 }
 

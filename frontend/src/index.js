@@ -45,7 +45,7 @@ const router = createBrowserRouter([
     element: <EditFeedback feedbackTitle={"Add a dark theme option"} />
   },
   {
-    path: "feedback-detail",
+    path: "feedback-detail/:id",
     element: <FeedbackDetail />
   }
 ]);
