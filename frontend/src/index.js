@@ -13,17 +13,6 @@ import ErrorPage from './error-page';
 import Roadmap from './routes/roadmap/Roadmap';
 import CreateFeedback from './routes/createFeedback/CreateFeedback';
 import FeedbackDetail from './routes/feedbackDetail/FeedbackDetail';
-// {
-//   path: "feedback-detail/:feedbackId"
-//   // element: <FeedbackDetail />
-// },
-// {
-//   path: "new-feedback",
-//   // element: <CreateFeedback />
-// }, {
-//   path: "edit-feedback/:feedbackId",
-//   // element: <EditFeedback />
-// }
 
 
 const router = createBrowserRouter([
@@ -41,7 +30,7 @@ const router = createBrowserRouter([
     element: <CreateFeedback />
   },
   {
-    path: "edit-feedback",
+    path: "/edit-feedback/:id",
     element: <EditFeedback feedbackTitle={"Add a dark theme option"} />
   },
   {

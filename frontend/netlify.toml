@@ -1,7 +1,7 @@
 [build]
-  command = "npm run build"
   functions = "functions"
   publish = "build"
+  command = "CI='' npm run build"
 [[redirects]]
   from = "/api/images/*"
   to = "https://6481eb2e52a77b056f954018--boisterous-genie-b108c3.netlify.app/:splat"

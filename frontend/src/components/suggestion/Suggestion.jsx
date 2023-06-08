@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom';
 import styles from './css/index.module.css';
 
 
-
-
 function Suggestion({ content
 }) {
 
@@ -20,9 +18,9 @@ function Suggestion({ content
 
       <div className={styles["suggestion-info"]}>
         <Link
+          className='suggestion-link'
           to={`/feedback-detail/${content.id}`}
-          state={content}
-        >
+          state={content} >
           <h2 className={styles['suggestion-title']}>
             {content.title}
           </h2>

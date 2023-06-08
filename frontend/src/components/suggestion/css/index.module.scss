@@ -16,6 +16,10 @@
     justify-items: start;
   }
 
+  &-link {
+    text-decoration: none;
+  }
+
   .votes-counter {
     grid-row: 2;
     grid-column: 1;
