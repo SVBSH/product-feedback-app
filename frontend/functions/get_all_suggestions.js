@@ -1,4 +1,3 @@
-const { MongoClient } = require('mongodb');
 require('dotenv').config()
 const { clientPromise } = require('../helpers/getDatabase');
 
@@ -25,7 +24,7 @@ const handler = async (event) => {
       body: JSON.stringify(results),
     }
   } catch (e) {
-    return { statusCode: 500, body: error.toString() };
+    return { statusCode: 500, body: e.toString() };
   }
 }
 // https://explorers.netlify.com/learn/up-and-running-with-serverless-functions/introduction-with-serverless-functions
