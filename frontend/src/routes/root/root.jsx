@@ -9,24 +9,50 @@ import iconSuggestionEmpty from '../../assets/suggestions/illustration-empty.svg
 import Suggestion from '../../components/suggestion/Suggestion';
 import axios from 'axios';
 
+
+const SORT_OPTION = {
+  SORT_BY_DEFAULT: 'all',
+  SORT_BY_UI: 'ui',
+  SORT_BY_UX: 'ux',
+  SORT_BY_ENHENCAMENT: 'enhancament',
+  SORT_BY_FEATURE: 'feature',
+  SORT_BY_BUG: 'bug'
+}
+
+
 function Root() {
   const [activeTagIndex, setActiveTagIndex] = useState(0);
+  const [sortOption, setSortOption] = useState(SORT_OPTION.SORT_BY_FEATURE)
 
   const [menuOpen, setMenuOpen] = useState(false);
   function handleMenuStatus() {
     setMenuOpen(menuOpen => !menuOpen);
   }
+
   const [suggestions, setSuggestions] = useState([]);
+  const [sortedSuggestionList, setSortedSuggestionList] = useState(suggestions);
+
+  async function getAllSuggestions() {
+    const result = await axios.get(
+      '/.netlify/functions/get_all_suggestions'
+    );
+    let resultData = await result.data;
+    setSuggestions(resultData);
+    setSortedSuggestionList(resultData);
+  }
   useEffect(() => {
-    async function search() {
-      const result = await axios.get(
-        '/.netlify/functions/get_all_suggestions'
-      );
-      console.log(await result.data);
-      setSuggestions(await result.data);
-    }
-    search();
+    getAllSuggestions();
   }, []);
+
+  useEffect(() => {
+    if (sortOption === SORT_OPTION.SORT_BY_DEFAULT) {
+      setSortedSuggestionList(structuredClone(suggestions));
+      return;
+    }
+    let suggestions_copy = [...suggestions]
+      .filter(suggestion => suggestion.category === sortOption);
+    setSortedSuggestionList(suggestions_copy);
+  }, [sortOption])
 
   return (
     <>
@@ -59,8 +85,15 @@ function Root() {
             <ul className={styles['tag-list'] + " card"} role="list">
               {SUGGESTION_TAGS.map(
                 (tag, index) => (
-                  <li data-active={activeTagIndex === index}>
-                    <button className='tag'>{tag}</button>
+                  <li key={tag} data-active={activeTagIndex === index}>
+                    <button onClick={
+                      () => {
+                        setSortOption(tag.toLowerCase());
+                        setActiveTagIndex(index);
+                      }}
+                      className='tag'>
+                      {tag}
+                    </button>
                   </li>
                 )
               )}
@@ -68,7 +101,7 @@ function Root() {
             <div className={styles["roadmap"] + " card"}>
               <div className={styles["roadmap-info"]}>
                 <h2 className="roadmap-title">Roadmap</h2>
-                <a href="">View</a>
+                <Link className='text-black' data-type="5" to="/roadmap">View</Link>
               </div>
               <ul className={styles["roadmap__statuses"]}>
                 <li className={styles["roadmap__status"]}>
@@ -115,44 +148,34 @@ function Root() {
           </div>
           <ul className={styles['suggestion-list']} role="list">
             {
-              suggestions.map((suggestion) => <Suggestion content={suggestion} />)
+              sortedSuggestionList.map((suggestion) =>
+                <Suggestion key={suggestion.title} content={suggestion} getAllSuggestions={getAllSuggestions}/>)
             }
           </ul>
-          {(suggestions.length <= 0) &&
+          {(sortedSuggestionList.length <= 0) &&
             <div className={styles["empty-feedback"] + " | card bg-white"}>
-            <img
-              src={iconSuggestionEmpty}
-              alt="empty suggestions"
-              width="102px"
-              height="108px"
-            />
+              <img
+                src={iconSuggestionEmpty}
+                alt="empty suggestions"
+                width="102px"
+                height="108px"
+              />
 
-            <div className={styles["empty-feedback__info"]}>
-              <h2 className=''>
-                There is no feedback yet.
-              </h2>
-              <p>
-                Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.
-              </p>
-              <Link
-                to="/new-feedback"
-                className={styles['add-feedback'] + " btn"}
-                data-type="1">
-                + Add Feedback
-              </Link>
-              <button
-                onClick={async () => {
-                  await axios.get('/.netlify/functions/get_all_suggestions')
-                  // await fetch('/.netlify/functions/insert_movie', {
-                  //   method: 'POST',
-                  //   body: JSON.stringify({
-                  //     region: 'hoenn'
-                  //   })
-                  // });
-                }}
-              >Insert Movie</button>
-            </div>
-          </div>}
+              <div className={styles["empty-feedback__info"]}>
+                <h2 className=''>
+                  There is no feedback yet.
+                </h2>
+                <p>
+                  Got a suggestion? Found a bug that needs to be squashed? We love hearing about new ideas to improve our app.
+                </p>
+                <Link
+                  to="/new-feedback"
+                  className={styles['add-feedback'] + " btn"}
+                  data-type="1">
+                  + Add Feedback
+                </Link>
+              </div>
+            </div>}
         </main>
       </div>
 

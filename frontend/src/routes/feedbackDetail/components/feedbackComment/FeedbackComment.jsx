@@ -1,15 +1,25 @@
 import styles from '../../css/index.module.css'
-import iconUserAnne from '../../../../assets/user-images/image-anne.jpg';
 import { useState } from 'react';
+import axios from 'axios';
+import getCurrentUser from '../../../../helpers/getCurrentUser';
 
 
-function FeedbackComment({ commentInfo, isReply }) {
+function FeedbackComment({
+  commentInfo,
+  isReply,
+  fetchSuggestionComments,
+  parentComment
+}) {
+
+  const [replyText, setReplyText] = useState('');
+  function handleReply(e) {
+    setReplyText(e.target.value);
+  }
+
   const [feedbackBoxActive, setFeedbackBoxActive] = useState(false);
   function handleFeedbackBoxActive() {
     setFeedbackBoxActive(feedbackBoxActive => !feedbackBoxActive);
   }
-
-  console.log(commentInfo);
 
   let replies = [];
   if (isReply === false) {
@@ -19,7 +29,6 @@ function FeedbackComment({ commentInfo, isReply }) {
         feedbackBoxActive: false
       }
     });
-    console.log(replies);
   }
 
   return (
@@ -41,12 +50,47 @@ function FeedbackComment({ commentInfo, isReply }) {
 
       <div className={styles["lal"]}>
         <p className={styles['comment-text']}>
+          {
+            isReply && <span className="reply-to | text-purple font-bold">@{commentInfo?.replyingTo} </span>
+          }
           {commentInfo.content}
         </p>
         {feedbackBoxActive &&
-          <form action="" className={styles['reply-form']}>
-            <textarea name="" id="" cols="30" rows="10" autoFocus></textarea>
-            <button type='submit' className='btn' data-type="1">Post Reply</button>
+          <form className={styles['reply-form']}>
+            <textarea
+              name=""
+              id=""
+              cols="30"
+              rows="10"
+              autoFocus
+              value={replyText}
+              onChange={handleReply} />
+            <button
+              type='submit'
+              className='btn'
+              data-type="1"
+              onClick={(e) => {
+                e.preventDefault();
+                if (replyText.length === 0) {
+                  return
+                }
+
+                async function handlePostReply() {
+                  await axios.post('/.netlify/functions/post-comment', {
+                    title: parentComment.parentTitle,
+                    content: replyText,
+                    user: getCurrentUser(),
+                    isReply: true,
+                    replyingTo: commentInfo.user.username,
+                    parentId: parentComment.parentIndex
+                  });
+                  await fetchSuggestionComments();
+                }
+                handleFeedbackBoxActive();
+                handlePostReply();
+              }}>
+              Post Reply
+            </button>
           </form>
         }
       </div>
@@ -58,7 +102,10 @@ function FeedbackComment({ commentInfo, isReply }) {
                 <FeedbackComment
                   key={replyIndex}
                   commentInfo={reply}
-                  isReply={true} />)
+                  isReply={true}
+                  fetchSuggestionComments={fetchSuggestionComments}
+                  parentComment={parentComment}
+                />)
             }
           </ul>
         )

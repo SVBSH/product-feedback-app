@@ -9,14 +9,13 @@ const handler = async (event) => {
     const results = await collection
       .find({})
       .project({
-        _id: 0,
+        _id: 1,
         id: 1,
         title: 1,
         category: 1,
         status: 1,
         description: 1,
         upvotes: 1,
-        comments: 1
       })
       .toArray();
     return {

@@ -2,47 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/main.css';
 import reportWebVitals from './reportWebVitals';
+import { routesConfiguration } from './routesConfiguration';
+
 import {
-  createBrowserRouter,
   RouterProvider
 } from 'react-router-dom';
 
-import Root from './routes/root/root';
-import EditFeedback from './routes/editFeedback/EditFeedback';
-import ErrorPage from './error-page';
-import Roadmap from './routes/roadmap/Roadmap';
-import CreateFeedback from './routes/createFeedback/CreateFeedback';
-import FeedbackDetail from './routes/feedbackDetail/FeedbackDetail';
-
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-  },
-  {
-    path: "/roadmap",
-    element: <Roadmap />
-  },
-  {
-    path: "/new-feedback",
-    element: <CreateFeedback />
-  },
-  {
-    path: "/edit-feedback/:id",
-    element: <EditFeedback feedbackTitle={"Add a dark theme option"} />
-  },
-  {
-    path: "feedback-detail/:id",
-    element: <FeedbackDetail />
-  }
-]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <RouterProvider router={routesConfiguration} />
   </React.StrictMode>
 );
 

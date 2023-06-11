@@ -1,4 +1,5 @@
 const SUGGESTION_TAGS = [
+  'All',
   "UI",
   "UX",
   "Enhancement",
