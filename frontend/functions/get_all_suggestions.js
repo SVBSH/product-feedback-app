@@ -16,6 +16,7 @@ const handler = async (event) => {
         status: 1,
         description: 1,
         upvotes: 1,
+        likedByList: 1
       })
       .toArray();
     return {

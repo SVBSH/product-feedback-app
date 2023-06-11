@@ -12,10 +12,16 @@
   gap: 0.5em;
   justify-items: start;
 }
+.suggestion-link {
+  text-decoration: none;
+}
 .suggestion .votes-counter {
   grid-row: 2;
   grid-column: 1;
   justify-self: start;
+}
+.suggestion .votes-counter[data-voted=true] .votes-count {
+  color: red;
 }
 .suggestion .comment-wrapper {
   grid-row: 2;

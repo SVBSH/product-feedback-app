@@ -22,7 +22,16 @@ const SORT_OPTION = {
 
 function Root() {
   const [activeTagIndex, setActiveTagIndex] = useState(0);
-  const [sortOption, setSortOption] = useState(SORT_OPTION.SORT_BY_FEATURE)
+  const [sortOption, setSortOption] = useState(
+    localStorage.getItem('sortOption') || SORT_OPTION.SORT_BY_DEFAULT);
+
+
+  function handleSortOptionSelect(sortOption, index) {
+    sortOption = sortOption.toLowerCase();
+    localStorage.setItem('sortOption', sortOption);
+    setSortOption(sortOption);
+    setActiveTagIndex(index);
+  }
 
   const [menuOpen, setMenuOpen] = useState(false);
   function handleMenuStatus() {
@@ -52,7 +61,7 @@ function Root() {
     let suggestions_copy = [...suggestions]
       .filter(suggestion => suggestion.category === sortOption);
     setSortedSuggestionList(suggestions_copy);
-  }, [sortOption])
+  }, [sortOption, suggestions])
 
   return (
     <>
@@ -85,11 +94,10 @@ function Root() {
             <ul className={styles['tag-list'] + " card"} role="list">
               {SUGGESTION_TAGS.map(
                 (tag, index) => (
-                  <li key={tag} data-active={activeTagIndex === index}>
+                  <li key={tag} data-active={tag.toLocaleLowerCase() === sortOption}>
                     <button onClick={
                       () => {
-                        setSortOption(tag.toLowerCase());
-                        setActiveTagIndex(index);
+                        handleSortOptionSelect(tag, index);
                       }}
                       className='tag'>
                       {tag}
@@ -149,7 +157,7 @@ function Root() {
           <ul className={styles['suggestion-list']} role="list">
             {
               sortedSuggestionList.map((suggestion) =>
-                <Suggestion key={suggestion.title} content={suggestion} getAllSuggestions={getAllSuggestions}/>)
+                <Suggestion key={suggestion.title} content={suggestion} getAllSuggestions={getAllSuggestions} />)
             }
           </ul>
           {(sortedSuggestionList.length <= 0) &&

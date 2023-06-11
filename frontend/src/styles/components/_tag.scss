@@ -12,6 +12,7 @@
   font-weight: var(--fw-xlarge);
   border-radius: var(--rounded-base);
   
+  &[data-active="true"],
   &:where(:hover, :focus-within) {
     background-color: var(--clr-blue-5);
     color: var(--clr-white);

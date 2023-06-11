@@ -66,8 +66,8 @@ select {
     scroll-behavior: auto;
   }
   *,
-*::before,
-*::after {
+  *::before,
+  *::after {
     -webkit-animation-duration: 0.01ms !important;
             animation-duration: 0.01ms !important;
     -webkit-animation-iteration-count: 1 !important;
@@ -249,7 +249,7 @@ input:where(:hover, :focus-within) {
   font-weight: var(--fw-xlarge);
   border-radius: var(--rounded-base);
 }
-.tag:where(:hover, :focus-within) {
+.tag[data-active=true], .tag:where(:hover, :focus-within) {
   background-color: var(--clr-blue-5);
   color: var(--clr-white);
 }
@@ -269,83 +269,83 @@ input:where(:hover, :focus-within) {
 }
 
 .text-purple {
-  color: hsl(282deg, 83%, 52%);
+  color: hsl(282, 83%, 52%);
 }
 
 .text-blue-4 {
-  color: hsl(204deg, 94%, 68%);
+  color: hsl(204, 94%, 68%);
 }
 
 .text-blue-5 {
-  color: hsl(230deg, 76%, 59%);
+  color: hsl(230, 76%, 59%);
 }
 
 .text-dark-blue-4 {
-  color: hsl(230deg, 31%, 31%);
+  color: hsl(230, 31%, 31%);
 }
 
 .text-dark-blue-5 {
-  color: hsl(231deg, 33%, 34%);
+  color: hsl(231, 33%, 34%);
 }
 
 .text-grey-4 {
-  color: hsl(224deg, 20%, 49%);
+  color: hsl(224, 20%, 49%);
 }
 
 .text-white {
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
 }
 
 .text-grey-2 {
-  color: hsl(230deg, 60%, 98%);
+  color: hsl(230, 60%, 98%);
 }
 
 .text-grey-3 {
-  color: hsl(231deg, 100%, 97%);
+  color: hsl(231, 100%, 97%);
 }
 
 .text-orange {
-  color: hsl(14deg, 83%, 74%);
+  color: hsl(14, 83%, 74%);
 }
 
 .bg-purple {
-  background-color: hsl(282deg, 83%, 52%);
+  background-color: hsl(282, 83%, 52%);
 }
 
 .bg-blue-4 {
-  background-color: hsl(204deg, 94%, 68%);
+  background-color: hsl(204, 94%, 68%);
 }
 
 .bg-blue-5 {
-  background-color: hsl(230deg, 76%, 59%);
+  background-color: hsl(230, 76%, 59%);
 }
 
 .bg-dark-blue-4 {
-  background-color: hsl(230deg, 31%, 31%);
+  background-color: hsl(230, 31%, 31%);
 }
 
 .bg-dark-blue-5 {
-  background-color: hsl(231deg, 33%, 34%);
+  background-color: hsl(231, 33%, 34%);
 }
 
 .bg-grey-4 {
-  background-color: hsl(224deg, 20%, 49%);
+  background-color: hsl(224, 20%, 49%);
 }
 
 .bg-white {
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
 }
 
 .bg-grey-2 {
-  background-color: hsl(230deg, 60%, 98%);
+  background-color: hsl(230, 60%, 98%);
 }
 
 .bg-grey-3 {
-  background-color: hsl(231deg, 100%, 97%);
+  background-color: hsl(231, 100%, 97%);
 }
 
 .bg-orange {
-  background-color: hsl(14deg, 83%, 74%);
+  background-color: hsl(14, 83%, 74%);
 }
 
 .rounded-base {

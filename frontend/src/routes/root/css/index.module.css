@@ -69,7 +69,7 @@
   bottom: 0;
   display: grid;
   grid-template-columns: 1fr;
-  background-color: hsla(0deg, 0%, 0%, 0.4);
+  background-color: hsla(0, 0%, 0%, 0.4);
 }
 .aside-wrapper[data-menu-active=true] {
   grid-template-columns: 1fr;

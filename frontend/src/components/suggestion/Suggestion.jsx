@@ -19,11 +19,19 @@ function Suggestion({ content, getAllSuggestions }) {
     )();
   }
 
+  function getVoteStatus() {
+    if (content.likedByList === undefined) {
+      return false;
+    }
+    return content.likedByList.includes(getCurrentUser().username);
+  }
+
   return (
     <li className={styles['suggestion'] + ' | card'}>
 
       <div className={styles["votes-counter"]}>
-        <p className={styles['votes-count'] + " | tag"}
+        <p className={styles['votes-count'] + " | tag"} 
+          data-active={getVoteStatus()}
           onClick={handleUpvoteClick}>
           {content.upvotes}
         </p>
